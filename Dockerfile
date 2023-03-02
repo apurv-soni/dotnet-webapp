@@ -1,9 +1,9 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
 WORKDIR /App
 
-COPY . /App/
+COPY . ./
 # Restore as distinct layers
-RUN dotnet restore MVC_Core_WebApp.csproj
+RUN dotnet restore
 # Build and publish a release
 RUN dotnet publish -c Release -o out
 
