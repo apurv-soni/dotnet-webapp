@@ -1,0 +1,7 @@
+D:\Projects\MVC_Core_App\MVC_Core_WebApp\MVC_Core_WebApp\obj\Release\net6.0\PubTmp\Out\MVC_Core_WebApp.exe
+D:\Projects\MVC_Core_App\MVC_Core_WebApp\MVC_Core_WebApp\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+D:\Projects\MVC_Core_App\MVC_Core_WebApp\MVC_Core_WebApp\obj\Release\net6.0\PubTmp\Out\appsettings.json
+D:\Projects\MVC_Core_App\MVC_Core_WebApp\MVC_Core_WebApp\obj\Release\net6.0\PubTmp\Out\MVC_Core_WebApp.dll
+D:\Projects\MVC_Core_App\MVC_Core_WebApp\MVC_Core_WebApp\obj\Release\net6.0\PubTmp\Out\MVC_Core_WebApp.deps.json
+D:\Projects\MVC_Core_App\MVC_Core_WebApp\MVC_Core_WebApp\obj\Release\net6.0\PubTmp\Out\MVC_Core_WebApp.runtimeconfig.json
+D:\Projects\MVC_Core_App\MVC_Core_WebApp\MVC_Core_WebApp\obj\Release\net6.0\PubTmp\Out\MVC_Core_WebApp.pdb
