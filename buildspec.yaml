@@ -11,7 +11,7 @@ phases:
       - echo Logging in to Amazon ECR...
       - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
       - echo Build files...
-      - cd WebApp/WebApp      
+      - cd WebApp     
       - echo Restore started on `date`
       - dotnet restore WebApp.csproj
   build:
