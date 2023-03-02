@@ -13,6 +13,7 @@ phases:
       - echo Build files...
       - pwd
       - echo Restore started on `date`
+      - pwd&&ls
       - dotnet restore WebApp.csproj
   build:
     commands:
