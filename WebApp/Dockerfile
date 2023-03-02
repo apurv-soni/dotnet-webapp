@@ -5,10 +5,10 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
 WORKDIR /app
 
 # Copy the project files to the container
-COPY WebApp/WebApp.csproj ./
+COPY WebApp/*.csproj ./
 RUN dotnet restore
 
-COPY WebApp/ ./
+COPY WebApp ./
 RUN dotnet publish -c Release -o out
 
 # Build runtime image
