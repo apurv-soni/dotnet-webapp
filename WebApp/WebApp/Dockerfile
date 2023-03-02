@@ -1,25 +1,23 @@
-#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+# Set the base image
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
 
-#Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
-#For more information, please see https://aka.ms/containercompat
-
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+# Set the working directory in the container
 WORKDIR /app
+
+# Copy the project files to the container
+COPY WebApp/WebApp/*.csproj ./
+RUN dotnet restore
+
+COPY WebApp/WebApp ./
+RUN dotnet publish -c Release -o out
+
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+WORKDIR /app
+COPY --from=build-env /app/out .
+
+# Expose the port that the web server will listen on
 EXPOSE 80
-EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
-COPY ["*", "WebApp/"]
-RUN dotnet restore "WebApp.csproj"
-COPY . .
-WORKDIR "/src/WebApp"
-RUN dotnet build "WebApp.csproj" -c Release -o /app/build
-
-FROM build AS publish
-RUN dotnet publish "WebApp.csproj" -c Release -o /app/publish /p:UseAppHost=false
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
+# Start the web server
 ENTRYPOINT ["dotnet", "WebApp.dll"]
