@@ -3,7 +3,7 @@ WORKDIR /App
 
 COPY . /App/
 # Restore as distinct layers
-RUN dotnet restore
+RUN dotnet restore MVC_Core_WebApp.csproj
 # Build and publish a release
 RUN dotnet publish -c Release -o out
 
