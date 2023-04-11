@@ -1,16 +1,18 @@
 version: 0.0
+#extra
 os: linux
 files:
-  - source: /App
-    destination: /var/www/html/DotNetWebApp
+  - source: codedeploy/index.html
+    destination: /var/www/html/
 hooks:
   BeforeInstall:
-  - location: scripts/install_dependencies.sh
-    timeout: 300
-    runas: root
-  ApplicationStart:
-     - location: scripts/start-server.sh
+    - location: codedeploy/scripts/install_dependencies
+      timeout: 300
+      runas: root
+    - location: codedeploy/scripts/start_server
+      timeout: 300
+      runas: root
   ApplicationStop:
-     - location: scripts/stop-server.sh
+    - location: codedeploy/scripts/stop_server
       timeout: 300
       runas: root
